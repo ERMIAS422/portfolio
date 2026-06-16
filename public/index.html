@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Interactive Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">MyPortfolio</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#terminal-section">Terminal</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button id="themeToggle" class="theme-btn">🌙 Mode</button></li>
+        </ul>
+    </nav>
+        <header id="hero">
+        <div class="hero-container">
+            <img src="profile.jpg" alt="Your Name - Profile Picture" class="hero-image">
+            
+            <div class="hero-text">
+                <h1>Hi, I'm Ermias</h1>
+                <p>I'm a Web Developer specializing in Node, Express, and modern JavaScript architectures.</p>
+                <a href="#contact" class="btn">Get in touch</a>
+            </div>
+        </div>
+    </header>
+
+
+    <section id="terminal-section" class="scroll-reveal">
+        <h2>Interactive Terminal</h2>
+        <p>Type commands to interact with my portfolio system. Type <code>help</code> to begin.</p>
+        <div class="terminal-container">
+            <div class="terminal-bar">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green" id="maximizeBtn" title="Toggle Fullscreen"></span>
+
+                <span class="terminal-title">guest@dev-portfolio:~</span>
+            </div>
+            <div class="terminal-body" id="terminalBody">
+                <div class="terminal-line">Welcome to the interactive portfolio shell. Type 'help' for a list of commands.</div>
+            </div>
+            <div class="terminal-input-line">
+                <span class="prompt">guest@portfolio:~$</span>
+                <input type="text" id="terminalInput" autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="scroll-reveal">
+        <h2>About Me</h2>
+        <p>I am a passionate developer who loves building clean, functional, and user-friendly web applications.</p>
+    </section>
+
+    <section id="projects" class="scroll-reveal">
+        <h2>My Projects</h2>
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="frontend">Frontend</button>
+            <button class="filter-btn" data-filter="backend">Backend</button>
+        </div>
+
+        <div class="project-grid">
+            <div class="project-card tilt-card" data-category="backend">
+                <h3>E-Commerce API</h3>
+                <p>A robust Node.js and Express REST API handling product inventories and transactions.</p>
+                <span class="tag">Backend</span>
+            </div>
+            <div class="project-card tilt-card" data-category="frontend">
+                <h3>color-Flipper</h3>
+                <p>Random hex color generator that changes the background color on every click. Built with JavaScript arrays and DOM events</p>
+                  <a href="front-end/01-color-flipper/index.html" target="_blank" class="btn">Live Demo</a>
+                <span class="tag">Frontend</span>
+            </div>
+            
+            <div class="project-card tilt-card" data-category="frontend">
+                <h3>Counter</h3>
+                <p>Interactive counter with increase, decrease and reset buttons. Changes color based on positive, negative or zero value.</p>
+                  <a href="front-end/02-counter/index.html" target="_blank" class="btn">Live Demo</a>
+                <span class="tag">Frontend</span>
+            </div>
+            
+            <div class="project-card tilt-card" data-category="frontend">
+                <h3>Drum Kit</h3>
+                <p>Interactive drum kit that plays real sounds on button click or keyboard press. Built with JavaScript events, switch statements and the Web Audio API.</p>
+                  <a href="front-end/pro-2-Drum-Kit/index.html" target="_blank" class="btn">Live Demo</a>
+                <span class="tag">Frontend</span>
+            </div>
+            
+            
+            <div class="project-card tilt-card" data-category="backend">
+                <h3>Chat Server</h3>
+                <p>Real-time communication backend engine designed for high concurrency environments.</p>
+                <span class="tag">Backend</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="scroll-reveal">
+        <h2>Get In Touch</h2>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <p id="formStatus"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 DevPortfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="terminal.js"></script>
+    <script src="tilt.js"></script>
+</body>
+</html>
