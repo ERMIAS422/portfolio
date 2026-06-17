@@ -2,6 +2,8 @@ import express from "express";
 import path from "path";
 import nodemailer from "nodemailer";
 import { fileURLToPath } from "url";
+import dotenv from "dotenv";
+dotenv.config();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
