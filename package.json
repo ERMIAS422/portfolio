@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "modul",
+  "type": "module",
   "dependencies": {
     "express": "^5.2.1",
     "nodemailer": "^8.0.10"
