@@ -13,17 +13,17 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "ermiasdegu42@gmail.com",
-    pass: "nbwlmwlfricslbvb"
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_PASS
   }
 });
 
-app.post("/api/contact", (req, res) => {
+app.post("/api/contact", async (req, res) => {
   const { name, email, message } = req.body;
   
-  transporter.sendMail({
-    from: "ermiasdegu42@gmail.com",
-    to: "ermiasdegu42@gmail.com",
+  await transporter.sendMail({
+    from: process.env.GMAIL_USER,
+    to: process.env.GMAIL_USER,
     subject: `Portfolio message from ${name}`,
     text: `Email: ${email}\n\nMessage: ${message}`
   });
@@ -31,6 +31,11 @@ app.post("/api/contact", (req, res) => {
   res.json({ success: true, reply: "Thanks! I will get back to you soon." });
 });
 
-app.listen(PORT, () => {
-  console.log(`Portfolio running at http://localhost:${PORT}`);
-});
+// This is the key change!
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Portfolio running at http://localhost:${PORT}`);
+  });
+}
+
+export default app;
